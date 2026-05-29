@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Ways — Cho Thuê Mặt Bằng Kinh Doanh</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#7C3AED',
+              dark:    '#5B21B6',
+              light:   '#EDE9FE',
+            },
+            accent: {
+              DEFAULT: '#F97316',
+              dark:    '#EA580C',
+              light:   '#FFF7ED',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .hero-bg {
+      background: #0f0c29;
+      position: relative;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1800&q=90');
+      background-size: cover;
+      background-position: center center;
+      opacity: 0.75;
+      z-index: 0;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,12,41,0.78) 0%, rgba(49,21,100,0.65) 50%, rgba(30,27,75,0.55) 100%);
+      z-index: 1;
+    }
+    .hotline-pulse {
+      animation: pulse-ring 2s ease-in-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.5); }
+      50%       { box-shadow: 0 0 0 12px rgba(249,115,22,0); }
+    }
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    .sticky-hotline {
+      animation: slideInRight 0.4s ease forwards;
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(120px); opacity: 0; }
+      to   { transform: translateX(0);    opacity: 1; }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="New Ways Logo" class="h-9 object-contain" />
+      <span class="text-xl font-black text-brand">New<span class="text-accent">Ways</span></span>
+      <span class="hidden sm:inline text-xs text-gray-400 font-medium border-l border-gray-200 pl-2">Cho Thuê Mặt Bằng</span>
+    </a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+      <a href="#phan-loai" class="hover:text-brand transition-colors">Loại mặt bằng</a>
+      <a href="#mat-bang-noi-bat" class="hover:text-brand transition-colors">Mặt bằng nổi bật</a>
+      <a href="#vi-sao-chon" class="hover:text-brand transition-colors">Tại sao chọn chúng tôi</a>
+      <a href="#testimonials" class="hover:text-brand transition-colors">Khách hàng nói</a>
+    </div>
+    <a href="tel:0786226822"
+       class="hotline-pulse inline-flex items-center gap-2 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-accent-dark transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+      </svg>
+      <span class="hidden sm:inline">0786.226.822</span>
+      <span class="sm:hidden">Gọi ngay</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION 01 — HERO
+============================================================ -->
+<section class="hero-bg pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden min-h-[600px]">
+  <!-- Ảnh nền tòa nhà / khách sạn -->
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+
+  <!-- Layout 2 cột: chữ trái | logo phải -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-20 flex flex-col md:flex-row items-center gap-10">
+
+    <!-- CỘT TRÁI: nội dung -->
+    <div class="flex-1">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-medium px-4 py-1.5 rounded-full mb-6">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        Hơn 200+ mặt bằng sẵn sàng bàn giao · Phủ khắp 20+ quận/huyện
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-4">
+        Mặt Bằng Đẹp<br/>
+        <span class="text-accent">Vị Trí Đắc Địa</span>
+      </h1>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white/70 mb-6">
+        New Ways Có. <span class="text-white">Đâu Cũng Có.</span>
+      </h2>
+
+      <p class="text-base sm:text-lg text-purple-200 max-w-lg mb-8 leading-relaxed">
+        Từ view biển triệu đô đến mặt tiền trung tâm, từ khu chợ sầm uất đến kho bãi tiện lợi —
+        <strong class="text-white">New Ways</strong> sở hữu giỏ hàng mặt bằng lớn nhất khu vực.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="tel:0786226822"
+           class="hotline-pulse inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-dark text-white font-black text-lg px-8 py-4 rounded-2xl transition-colors shadow-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          Gọi tư vấn miễn phí: 0786.226.822
+        </a>
+        <a href="#mat-bang-noi-bat"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-base px-7 py-4 rounded-2xl transition-colors">
+          Xem giỏ hàng
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-purple-300">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+          Tư vấn 100% miễn phí
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+          Phản hồi trong 30 phút
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+          Không ràng buộc
+        </span>
+      </div>
+    </div>
+
+    <!-- CỘT PHẢI: Logo New Ways -->
+    <div class="hidden md:flex w-72 lg:w-80 flex-shrink-0 items-center justify-center">
+      <div class="relative flex flex-col items-center gap-6">
+        <div class="absolute w-72 h-72 bg-accent/20 rounded-full blur-3xl"></div>
+        <img src="images/logo.jpg" alt="New Ways Logo"
+             class="relative w-80 lg:w-96 drop-shadow-[0_0_60px_rgba(249,115,22,0.9)]" />
+        <div class="relative bg-accent/20 border border-accent/40 rounded-2xl px-6 py-3 text-center backdrop-blur-sm">
+          <p class="text-xs text-accent font-semibold uppercase tracking-widest mb-1">Hotline tư vấn</p>
+          <p class="text-white font-black text-2xl tracking-widest">0786.226.822</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     POSTER STRIP — Ảnh thực tế New Ways
+============================================================ -->
+<div class="bg-gradient-to-br from-violet-50 via-purple-50 to-orange-50 py-12 border-b border-purple-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row gap-8 items-center">
+      <!-- Poster lớn -->
+      <div class="w-full md:w-64 flex-shrink-0">
+        <div class="relative">
+          <div class="absolute inset-0 bg-accent/15 rounded-2xl blur-xl scale-105"></div>
+          <img src="images/hero.jpg" alt="New Ways – Cho thuê mặt bằng"
+               class="relative w-full rounded-2xl shadow-xl border-2 border-brand/20 object-cover"
+               style="max-height:380px; object-position: center top;" />
+        </div>
+      </div>
+      <!-- Text bên phải -->
+      <div class="flex-1 text-center md:text-left">
+        <p class="text-brand font-bold text-sm uppercase tracking-widest mb-3">Thương hiệu uy tín</p>
+        <h3 class="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-4">
+          New Ways —<br/>
+          <span class="text-accent">Giỏ Hàng Lớn</span><br/>
+          Vị Trí Đẹp. Đâu Cũng Có.
+        </h3>
+        <p class="text-gray-500 mb-6 leading-relaxed">
+          Khách sạn · Nhà hàng · Cà phê · Kho bãi · Showroom · và nhiều hơn nữa.
+          Một cuộc gọi — tìm được đúng vị trí bạn cần.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <a href="tel:0786226822"
+             class="hotline-pulse inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-dark text-white font-black text-lg px-7 py-4 rounded-2xl transition-colors shadow-md">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+            </svg>
+            Gọi ngay: 0786.226.822
+          </a>
+          <a href="#phan-loai"
+             class="inline-flex items-center justify-center gap-2 border-2 border-brand text-brand hover:bg-brand hover:text-white font-bold px-6 py-4 rounded-2xl transition-all">
+            Xem loại mặt bằng →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 02 — SOCIAL PROOF BAR
+============================================================ -->
+<section class="bg-white border-b border-gray-100 py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-black text-brand">200+</p>
+        <p class="text-xs text-gray-400 mt-1 font-medium">Mặt bằng sẵn có</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-brand">20+</p>
+        <p class="text-xs text-gray-400 mt-1 font-medium">Quận / Huyện</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-brand">500+</p>
+        <p class="text-xs text-gray-400 mt-1 font-medium">Khách hàng tin dùng</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-accent">4.9★</p>
+        <p class="text-xs text-gray-400 mt-1 font-medium">Đánh giá trung bình</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 03 — PHÂN LOẠI MẶT BẰNG
+============================================================ -->
+<section id="phan-loai" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Header -->
+    <div class="text-center mb-14 fade-in">
+      <span class="text-brand font-semibold text-sm uppercase tracking-widest">Giỏ hàng đa dạng</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mt-2 mb-4">
+        Bạn Muốn Kinh Doanh Ở Đâu?
+      </h2>
+      <p class="text-lg text-brand font-semibold">New Ways đều có — và luôn có vị trí đẹp nhất.</p>
+      <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
+        Dù bạn đang lên kế hoạch mở khách sạn ven biển, chuỗi cửa hàng trung tâm hay quán ăn ngay cạnh khu chợ đông đúc —
+        giỏ hàng của chúng tôi đủ rộng để bạn chọn đúng vị trí ngay từ đầu.
+      </p>
+    </div>
+
+    <!-- 3 Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1: Biển -->
+      <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 fade-in">
+        <div class="h-44 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80"
+               alt="Mặt bằng gần biển" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/60 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Gần biển</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-xl font-black text-gray-900 mb-1">Mặt Bằng Gần Biển</h3>
+          <p class="text-cyan-600 font-semibold text-sm mb-4">View Biển · Du Lịch · Check-in</p>
+          <p class="text-gray-400 text-sm italic font-semibold mb-4">"Nơi khách check-in, tiền tự chảy về"</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            Mặt bằng diện tích lớn, tầm nhìn hướng biển hoặc nằm trong tuyến phố du lịch trọng điểm.
+            Vị trí đẹp, lượng khách du lịch ổn định quanh năm.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">Khách sạn</span>
+            <span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">Resort mini</span>
+            <span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">Nhà hàng hải sản</span>
+            <span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">Cafe check-in</span>
+            <span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">Homestay</span>
+          </div>
+          <a href="tel:0786226822" class="block text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-sm px-5 py-3 rounded-xl transition-colors">
+            Tư vấn mặt bằng này →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Trung tâm -->
+      <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 fade-in relative">
+        <!-- Badge nổi bật -->
+        <div class="absolute top-3 right-3 z-10 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full shadow">Phổ biến nhất</div>
+        <div class="h-44 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80"
+               alt="Mặt bằng trung tâm" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-violet-900/60 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-full">Trung tâm</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-xl font-black text-gray-900 mb-1">Mặt Bằng Trung Tâm</h3>
+          <p class="text-purple-600 font-semibold text-sm mb-4">Mặt Tiền Lớn · Thương Hiệu · Showroom</p>
+          <p class="text-gray-400 text-sm italic font-semibold mb-4">"Mặt tiền rộng — thương hiệu tự lên tiếng"</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            Toạ lạc ngay các tuyến đường huyết mạch, mật độ người qua lại cao.
+            Một vị trí đúng có thể tiết kiệm cả ngân sách marketing.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Showroom</span>
+            <span class="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Văn phòng</span>
+            <span class="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Chuỗi cửa hàng</span>
+            <span class="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Ngân hàng</span>
+            <span class="bg-purple-50 text-purple-700 text-xs font-medium px-3 py-1 rounded-full">Phòng khám</span>
+          </div>
+          <a href="tel:0786226822" class="block text-center bg-brand hover:bg-brand-dark text-white font-bold text-sm px-5 py-3 rounded-xl transition-colors">
+            Tư vấn mặt bằng này →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Chợ -->
+      <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 fade-in">
+        <div class="h-44 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80"
+               alt="Mặt bằng gần chợ" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 bg-accent text-white text-xs font-bold px-2.5 py-1 rounded-full">Gần chợ</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-xl font-black text-gray-900 mb-1">Mặt Bằng Gần Chợ</h3>
+          <p class="text-orange-600 font-semibold text-sm mb-4">Khu Dân Cư Sầm Uất · Bán Lẻ · Kho Bãi</p>
+          <p class="text-gray-400 text-sm italic font-semibold mb-4">"Khách không cần tìm bạn — họ đi ngang là ghé"</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-5">
+            Nằm sâu trong lõi dân cư đông đúc, gần chợ truyền thống và trục đường nội khu.
+            Lượng khách tự nhiên cao, chi phí thuê tối ưu hơn trung tâm.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-orange-50 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Quán ăn</span>
+            <span class="bg-orange-50 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Tạp hóa</span>
+            <span class="bg-orange-50 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Siêu thị mini</span>
+            <span class="bg-orange-50 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">Kho bãi</span>
+            <span class="bg-orange-50 text-orange-700 text-xs font-medium px-3 py-1 rounded-full">FMCG</span>
+          </div>
+          <a href="tel:0786226822" class="block text-center bg-accent hover:bg-accent-dark text-white font-bold text-sm px-5 py-3 rounded-xl transition-colors">
+            Tư vấn mặt bằng này →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dòng kết section -->
+    <div class="mt-12 text-center bg-brand-light border border-purple-200 rounded-2xl px-6 py-5 fade-in">
+      <p class="text-gray-700">
+        💬 <strong>Chưa biết chọn loại nào?</strong> Gọi ngay
+        <a href="tel:0786226822" class="font-black text-brand hover:underline">0786.226.822</a>
+        — đội ngũ New Ways sẽ tư vấn vị trí phù hợp nhất với mô hình kinh doanh của bạn.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 04 — MẶT BẰNG NỔI BẬT
+============================================================ -->
+<section id="mat-bang-noi-bat" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12 fade-in">
+      <span class="text-brand font-semibold text-sm uppercase tracking-widest">Đang sẵn sàng</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-2 mb-3">Mặt Bằng Nổi Bật</h2>
+      <p class="text-gray-500">Cập nhật liên tục — vị trí tốt không chờ lâu</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Listing card template x3 -->
+      <div class="card-hover border border-gray-100 rounded-2xl overflow-hidden shadow-sm fade-in">
+        <div class="h-48 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80"
+               alt="Mặt bằng view biển" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <span class="absolute top-3 left-3 bg-cyan-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Gần biển</span>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Còn trống</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-black text-gray-900 text-base mb-1">Mặt bằng view biển Vũng Tàu</h3>
+          <p class="text-gray-500 text-sm mb-3">📍 Bãi Sau, TP. Vũng Tàu · 350m²</p>
+          <div class="flex items-center justify-between">
+            <p class="text-brand font-black text-lg">Thương lượng</p>
+            <a href="tel:0786226822" class="bg-accent text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-accent-dark transition-colors">Liên hệ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover border border-gray-100 rounded-2xl overflow-hidden shadow-sm fade-in">
+        <div class="h-48 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80"
+               alt="Mặt bằng trung tâm" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <span class="absolute top-3 left-3 bg-brand text-white text-xs font-bold px-2.5 py-1 rounded-full">Trung tâm</span>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Còn trống</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-black text-gray-900 text-base mb-1">Mặt tiền trung tâm TP. Vũng Tàu</h3>
+          <p class="text-gray-500 text-sm mb-3">📍 Trần Phú, P. 1, TP. Vũng Tàu · 500m²</p>
+          <div class="flex items-center justify-between">
+            <p class="text-brand font-black text-lg">Thương lượng</p>
+            <a href="tel:0786226822" class="bg-accent text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-accent-dark transition-colors">Liên hệ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover border border-gray-100 rounded-2xl overflow-hidden shadow-sm fade-in">
+        <div class="h-48 relative overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=600&q=80"
+               alt="Kho bãi gần chợ" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <span class="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2.5 py-1 rounded-full">Gần chợ</span>
+          <span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Còn trống</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-black text-gray-900 text-base mb-1">Kho + Mặt bằng gần Chợ Cồn</h3>
+          <p class="text-gray-500 text-sm mb-3">📍 Gần Chợ Vũng Tàu, P. Thắng Tam · 800m²</p>
+          <div class="flex items-center justify-between">
+            <p class="text-brand font-black text-lg">Thương lượng</p>
+            <a href="tel:0786226822" class="bg-accent text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-accent-dark transition-colors">Liên hệ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="tel:0786226822"
+         class="inline-flex items-center gap-2 border-2 border-brand text-brand hover:bg-brand hover:text-white font-bold px-8 py-3.5 rounded-2xl transition-all text-base">
+        Xem toàn bộ giỏ hàng — Gọi 0786.226.822
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 05 — LỌC & TÌM KIẾM NHANH
+============================================================ -->
+<section class="py-16 bg-gray-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <h2 class="text-2xl sm:text-3xl font-black text-white mb-2">Tìm Nhanh Mặt Bằng Phù Hợp</h2>
+    <p class="text-gray-400 mb-8">Lọc theo nhu cầu — chúng tôi kết nối vị trí đúng cho bạn</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+      <select class="bg-gray-800 border border-gray-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand focus:outline-none">
+        <option value="">Loại mặt bằng</option>
+        <option>Gần biển / View biển</option>
+        <option>Trung tâm / Mặt tiền lớn</option>
+        <option>Gần chợ / Khu dân cư</option>
+      </select>
+      <select class="bg-gray-800 border border-gray-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand focus:outline-none">
+        <option value="">Khu vực</option>
+        <optgroup label="── Bãi biển ──" style="color:#9ca3af;">
+          <option>Bãi Trước (Thùy Vân)</option>
+          <option>Bãi Sau (Thùy Dương)</option>
+          <option>Bãi Dâu</option>
+          <option>Bãi Dứa</option>
+        </optgroup>
+        <optgroup label="── Phường trung tâm ──" style="color:#9ca3af;">
+          <option>P. 1 – Trung tâm TP Vũng Tàu</option>
+          <option>P. 2 – Khu thương mại</option>
+          <option>P. 3 – Khu văn phòng</option>
+          <option>P. 4 – Khu dân cư</option>
+          <option>P. 5 – Nguyễn An Ninh</option>
+          <option>P. 7 – Lê Lợi</option>
+          <option>P. 8 – Trần Phú</option>
+          <option>P. Thắng Tam</option>
+          <option>P. Thắng Nhất</option>
+          <option>P. Thắng Nhì</option>
+        </optgroup>
+        <optgroup label="── Chợ / Khu dân cư ──" style="color:#9ca3af;">
+          <option>Chợ Vũng Tàu (P. 1)</option>
+          <option>Chợ Bà Rịa</option>
+          <option>Chợ Long Điền</option>
+          <option>Khu dân cư Phước Thắng</option>
+          <option>Khu dân cư Rạch Dừa</option>
+        </optgroup>
+        <optgroup label="── Vùng lân cận ──" style="color:#9ca3af;">
+          <option>Long Hải – Phước Hải</option>
+          <option>Đất Đỏ</option>
+          <option>Xuyên Mộc</option>
+          <option>TP. Bà Rịa</option>
+        </optgroup>
+      </select>
+      <select class="bg-gray-800 border border-gray-700 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand focus:outline-none">
+        <option value="">Diện tích</option>
+        <option>50 – 100m²</option>
+        <option>100 – 200m²</option>
+        <option>200 – 300m²</option>
+        <option>300 – 500m²</option>
+        <option>500 – 700m²</option>
+        <option>700 – 1000m²</option>
+      </select>
+    </div>
+    <a href="tel:0786226822"
+       class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-black text-base px-8 py-4 rounded-2xl transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+      Tìm ngay — Gọi 0786.226.822
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 06 — TẠI SAO CHỌN NEW WAYS
+============================================================ -->
+<section id="vi-sao-chon" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 fade-in">
+      <span class="text-brand font-semibold text-sm uppercase tracking-widest">Lợi thế của chúng tôi</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-2">Tại Sao Chọn New Ways?</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 fade-in">
+        <div class="text-3xl mb-4">📦</div>
+        <h3 class="font-black text-gray-900 mb-2">Giỏ hàng rộng nhất khu vực</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">200+ mặt bằng đa dạng, phủ khắp các quận huyện. Đâu bạn cần, chúng tôi đều có.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 fade-in">
+        <div class="text-3xl mb-4">🎯</div>
+        <h3 class="font-black text-gray-900 mb-2">Tư vấn đúng mô hình</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Không chỉ cho thuê — chúng tôi phân tích mô hình kinh doanh và gợi ý vị trí tối ưu nhất cho bạn.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 fade-in">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="font-black text-gray-900 mb-2">Bàn giao nhanh, thủ tục gọn</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Quy trình ký kết nhanh chóng, hỗ trợ pháp lý đầy đủ. Bạn chỉ cần tập trung vào khai trương.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 fade-in">
+        <div class="text-3xl mb-4">🛡️</div>
+        <h3 class="font-black text-gray-900 mb-2">Hỗ trợ pháp lý miễn phí</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Hợp đồng minh bạch, có luật sư hỗ trợ soát xét. Tránh rủi ro pháp lý ngay từ đầu.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 fade-in">
+        <div class="text-3xl mb-4">💬</div>
+        <h3 class="font-black text-gray-900 mb-2">Hậu mãi tận tâm</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Đồng hành cùng bạn sau khi ký hợp đồng. Có sự cố, có vấn đề phát sinh — New Ways luôn có mặt.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-brand-light border border-purple-200 fade-in flex flex-col justify-between">
+        <div>
+          <div class="text-3xl mb-4">📞</div>
+          <h3 class="font-black text-gray-900 mb-2">Hotline sẵn sàng 7 ngày</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Gọi bất kỳ lúc nào trong tuần. Đội ngũ New Ways phản hồi trong 30 phút.</p>
+        </div>
+        <a href="tel:0786226822" class="mt-4 block text-center bg-brand text-white font-black py-3 rounded-xl hover:bg-brand-dark transition-colors">
+          0786.226.822
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 07 — TESTIMONIALS
+============================================================ -->
+<section id="testimonials" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 fade-in">
+      <span class="text-brand font-semibold text-sm uppercase tracking-widest">Khách hàng nói gì</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-2">Họ Đã Tìm Được Vị Trí Đẹp</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 fade-in">
+        <div class="flex gap-1 text-amber-400 mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          "Tôi tìm mặt bằng view biển gần 3 tháng không ra. Gọi cho New Ways, chỉ sau 2 ngày đã được dẫn đi xem 5 vị trí. Chốt ngay cái đầu tiên, hiện tại quán cafe của tôi đông khách liên tục."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center font-black text-cyan-700 text-sm">TH</div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">Anh Thanh Hùng</p>
+            <p class="text-gray-400 text-xs">Chủ Cafe CHECK-IN Đà Nẵng</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 fade-in">
+        <div class="flex gap-1 text-amber-400 mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          "New Ways không chỉ cho thuê mặt bằng, họ còn tư vấn rất kỹ về lưu lượng khách và phù hợp mô hình. Showroom của mình giờ nằm đúng vị trí vàng, doanh thu tháng đầu đã vượt kỳ vọng."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center font-black text-purple-700 text-sm">ML</div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">Chị Minh Lý</p>
+            <p class="text-gray-400 text-xs">Giám đốc Chuỗi Thời Trang ML</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 fade-in">
+        <div class="flex gap-1 text-amber-400 mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 text-sm leading-relaxed mb-5">
+          "Kho bãi gần chợ mà tôi thuê qua New Ways có giá hợp lý, vị trí thuận lợi giao hàng cực kỳ. Thủ tục nhanh, hợp đồng rõ ràng — không rắc rối gì cả. Sẽ tiếp tục hợp tác dài hạn."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-black text-orange-700 text-sm">QN</div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">Anh Quốc Nam</p>
+            <p class="text-gray-400 text-xs">Chủ hệ thống phân phối FMCG</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 08 — CTA CHỐT
+============================================================ -->
+<section class="py-20 bg-gradient-to-br from-violet-900 via-purple-800 to-indigo-900 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-80 h-80 bg-orange-500/15 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+    <!-- Urgency badge -->
+    <div class="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+      <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+      Vị trí tốt đang được hỏi thăm mỗi ngày
+    </div>
+
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+      Vị Trí Đẹp Không Chờ Ai.
+    </h2>
+    <p class="text-2xl sm:text-3xl font-black text-accent mb-6">
+      Gọi ngay hôm nay — trước khi người khác thuê mất.
+    </p>
+    <p class="text-purple-200 text-base max-w-xl mx-auto mb-10 leading-relaxed">
+      Mỗi ngày, hàng chục mặt bằng trong giỏ hàng New Ways được hỏi thăm. Để chúng tôi dành riêng
+      cho bạn những lựa chọn phù hợp nhất — <strong class="text-white">hoàn toàn miễn phí, không mất thêm bất kỳ chi phí nào.</strong>
+    </p>
+
+    <!-- Hotline CTA -->
+    <a href="tel:0786226822"
+       class="hotline-pulse inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-white font-black text-xl px-10 py-5 rounded-2xl transition-colors shadow-2xl mb-4">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+      </svg>
+      GỌI NGAY: 0786.226.822
+    </a>
+    <p class="text-purple-300 text-sm mb-12">Tư vấn miễn phí · Phản hồi trong 30 phút · 7 ngày / tuần</p>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-4 max-w-sm mx-auto mb-10">
+      <div class="flex-1 h-px bg-white/20"></div>
+      <span class="text-white/50 text-sm">hoặc</span>
+      <div class="flex-1 h-px bg-white/20"></div>
+    </div>
+
+    <!-- Form -->
+    <div class="bg-white/10 backdrop-blur border border-white/20 rounded-3xl p-8 max-w-lg mx-auto">
+      <h3 class="text-white font-black text-lg mb-1">Để lại số — chúng tôi gọi lại cho bạn</h3>
+      <p class="text-purple-300 text-sm mb-6">Nhận tư vấn vị trí đẹp nhất hoàn toàn miễn phí</p>
+      <form onsubmit="handleForm(event)" class="flex flex-col gap-3">
+        <input type="text" placeholder="Họ và tên của bạn" required
+               class="bg-white/10 border border-white/20 text-white placeholder-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"/>
+        <input type="tel" placeholder="Số điện thoại" required
+               class="bg-white/10 border border-white/20 text-white placeholder-purple-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"/>
+        <select class="bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+          <option value="" class="text-gray-800">Loại mặt bằng cần tìm</option>
+          <option value="bien" class="text-gray-800">Gần biển / View biển</option>
+          <option value="trungtam" class="text-gray-800">Trung tâm / Mặt tiền lớn</option>
+          <option value="cho" class="text-gray-800">Gần chợ / Khu dân cư</option>
+        </select>
+        <button type="submit"
+                class="bg-accent hover:bg-accent-dark text-white font-black py-3.5 rounded-xl text-base transition-colors mt-1">
+          Nhận Tư Vấn Miễn Phí →
+        </button>
+      </form>
+      <p class="text-purple-400 text-xs mt-4">
+        🔒 Thông tin của bạn được bảo mật tuyệt đối. Chúng tôi chỉ liên hệ đúng 1 lần theo yêu cầu.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 09 — FOOTER
+============================================================ -->
+<footer class="bg-gray-950 py-14">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div class="lg:col-span-2">
+        <p class="text-2xl font-black text-white mb-1">New<span class="text-accent">Ways</span></p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          Giỏ hàng lớn. Vị trí đẹp. Đâu cũng có.<br/>
+          Đồng hành cùng hàng trăm doanh nghiệp tìm đúng nơi để bắt đầu.
+        </p>
+        <a href="tel:0786226822"
+           class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-black text-sm px-5 py-3 rounded-xl transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          Hotline: 0786.226.822
+        </a>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-sm mb-4">Loại Mặt Bằng</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#phan-loai" class="hover:text-white transition-colors">Gần biển / View biển</a></li>
+          <li><a href="#phan-loai" class="hover:text-white transition-colors">Trung tâm / Mặt tiền lớn</a></li>
+          <li><a href="#phan-loai" class="hover:text-white transition-colors">Gần chợ / Khu dân cư</a></li>
+          <li><a href="#mat-bang-noi-bat" class="hover:text-white transition-colors">Tất cả mặt bằng</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-sm mb-4">Liên Hệ</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li>📞 <a href="tel:0786226822" class="hover:text-white transition-colors">0786.226.822</a></li>
+          <li>📧 <a href="mailto:info@newways.vn" class="hover:text-white transition-colors">info@newways.vn</a></li>
+          <li>📍 TP. Vũng Tàu, Bà Rịa – Vũng Tàu</li>
+          <li>🕐 Thứ 2 – Chủ Nhật: 7:30 – 20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-6 text-center text-gray-600 text-xs">
+      © 2025 New Ways. Chuyên cho thuê mặt bằng kinh doanh.
+      <span class="mx-2">·</span>
+      <span class="italic">Giỏ hàng lớn. Vị trí đẹp. Đâu cũng có.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY HOTLINE BUTTON (mobile) -->
+<div class="fixed bottom-5 right-5 z-50 sticky-hotline">
+  <a href="tel:0786226822"
+     class="hotline-pulse flex items-center justify-center w-14 h-14 bg-accent text-white rounded-full shadow-2xl hover:bg-accent-dark transition-colors">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0021.75 19.5v-1.375a2.25 2.25 0 00-1.563-2.143l-2.547-.849a2.25 2.25 0 00-2.32.578l-.9.9a15.006 15.006 0 01-6.53-6.53l.9-.9a2.25 2.25 0 00.578-2.32l-.849-2.547a2.25 2.25 0 00-2.143-1.563H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form handler
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Đã nhận! Chúng tôi sẽ liên hệ trong 30 phút';
+    btn.classList.replace('bg-accent', 'bg-green-500');
+    btn.classList.replace('hover:bg-accent-dark', 'hover:bg-green-600');
+    btn.disabled = true;
+    e.target.querySelectorAll('input, select').forEach(el => el.disabled = true);
+  }
+</script>
+</body>
+</html>
